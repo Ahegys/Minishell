@@ -1,27 +1,39 @@
 #include "../../includes/minishell.h"
 
-static void	value_size(char *str, size_t *index, size_t *counter)
+static void value_size(char *str, size_t *index, size_t *counter)
 {
-	size_t	var_len;
-
-	var_len = 0;
-	(*index)++;
-	if (!(str[*index] >= '0' && str[*index] <= '9'))
-	{
-		if (str[*index] == '?')
+		size_t var_len = 0;
+		(*index)++;
+		if (!(str[*index] >= '0' && str[*index] <= '9'))
 		{
-			(*counter) += ft_strlen(search(g_shell.hash, "?"));
-			(*index);
-			while ((ft_isalpha(str[*index]) || str[*index] == '_') && \
-			str[*index] != '\0')
-				(*index)++;
+				if (str[*index] == '?')
+				{
+						const char *value = search(g_shell.hash, "?");
+						(*counter) += strlen(value);
+						(*index)++;
+						while ((isalpha(str[*index]) || str[*index] == '_') && str[*index] != '\0')
+								(*index)++;
+				}
+				else
+				{
+						while (str[*index] != '\0')
+						{
+								var_len++;
+								(*index)++;
+						}
+						(*counter) += var_len;
+				}
 		}
 		else
 		{
-			while ()
+				while (str[*index] >= '0' && str[*index] <= '9')
+				{
+						var_len = var_len * 10 + (str[*index] - '0');
+						(*index)++;
+				}
+				(*counter) += var_len;
 		}
 }
-
 static void count_quotes(char *str, size_t *index, size_t *counter, char ref)
 {
 	(*index)++;

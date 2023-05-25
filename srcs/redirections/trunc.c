@@ -4,7 +4,8 @@ int	redirect_output_trunc(char *filename, t_command *son)
 {
 	char	*temp;
 
-	temp = remove_quotes_and_expand(filename);
+	//temp = remove_quotes_and_expand(filename);
+	temp = filename;
 	son->wr_here = open(temp, O_WRONLY | O_CREAT | O_TRUNC, PERM_CREATE);
 	free(temp);
 	if (son->wr_here == -1)

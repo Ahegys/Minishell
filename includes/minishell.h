@@ -34,22 +34,25 @@
 # define SIGNAL_INT 130
 
 // ! GLOBAL: NEVER DIRECTELY INCREMENT ANY POINTER INSIDE THE STRUCT;
-t_pipe	g_shell;
+extern t_pipe	g_shell;
 
 // int return
 int		cd(char *str);
 int		pipe_case(char **splited_pline);
 int		parser(char *str, t_hash *hash);
 int		write_to_case(char **splited_pline);
-int		redirection(char *str, t_hash *hash, t_command *son);
 int		intersections(char *str, char inter);
 int		read_from_case(char **splited_pline);
+int		redirection(char **str, t_command *son);
 int		unclosed_quotes_case(char **pipeline, char quote);
 
 //void return
 void	env(t_hash *hash);
 void	set_up_signals(void);
+void	executor(char *line);
+void	heredoc_signals(void);
 void	free_hash(t_hash *hash);
+void	buitins(char **commands);
 void	easter_eggs(char *flags);
 void	easy_splitter(char *str);
 void	pwd(char *str, t_hash *hash);
@@ -62,7 +65,7 @@ void	builtins(char *input, t_hash *hash);
 void	tokenizer(char *input, t_hash *hash);
 void	execute_line(char *line, t_hash *hash);
 void	count_cmds(char *input, size_t *n_cmds);
-void	heredoc(t_hash *hash, t_redirect *this);
+void	no_expansion_loop(char *limiter, t_command *son);
 void	insert_node(t_hash *hash, char *key, char *value);
 void	inside_quote_copy(char **str, char **new, char quote);
 void	copy_with_expansions(char *str, char *new, t_hash *hash);
@@ -76,12 +79,20 @@ char	*expand_vars(char *str, t_hash *hash);
 // t_node return
 t_node	*create_node(char *key, char *value);
 
+// char ** return
+char	**remove_quotes_and_expand(char **matrix);
+
 // new functions, analyze they before putting in the right place
-int	    isbuiltin(char *check);
+int		isbuiltin(char *check);
+int		heredoc(char *limiter, t_command *son);
 int		reading_invalid(char *file, t_hash *hash);
 int		writing_invalid(char *file, t_hash *hash);
+int		redirect_input(char *filename, t_command *son);
 int		redirect_invalid(char **split_pline, t_hash *hash);
-
+int		redirect_output_trunc(char *filename, t_command *son);
+int		redirect_output_append(char *filename, t_command *son);
+int		fill_son_orders(t_command *son_struct, char *cmd, t_hash *hash);
+size_t	get_edit_size(char *str);
 // pid_t return
 pid_t	execute_command(char **args, t_hash *hash);
 

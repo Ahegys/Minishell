@@ -1,10 +1,14 @@
 #include "../../includes/minishell.h"
+/*
 
+
+*/
 int	redirect_input(char *filename, t_command *son)
 {
 	char	*temp;
 
-	temp = remove_quotes_and_expand();
+	//temp = remove_quotes_and_expand();
+	temp = filename;
 	if (access(temp, R_OK) == -1)
 	{
 		free(temp);

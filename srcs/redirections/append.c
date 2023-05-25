@@ -4,7 +4,8 @@ int	redirect_output_append(char *filename, t_command *son)
 {
 	char	*temp;
 
-	temp = remove_quotes_and_expand(filename);
+	//temp = remove_quotes_and_expand(filename);
+	temp = filename;
 	son->wr_here = open(filename, O_WRONLY | O_CREAT | O_APPEND, PERM_CREATE);
 	free(temp);
 	if (son->wr_here == -1)

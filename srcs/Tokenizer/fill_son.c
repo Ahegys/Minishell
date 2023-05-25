@@ -52,6 +52,7 @@ static size_t	count_args(char *cmd)
 				cmd++;
 		}
 	}
+	return (nbr_args);
 }
 
 int	fill_son_orders(t_command *son_struct, char *cmd, t_hash *hash)
@@ -71,7 +72,8 @@ int	fill_son_orders(t_command *son_struct, char *cmd, t_hash *hash)
 	son_struct->wr_here = 0;
 	son_struct->rd_here = 0;
 	if (redirect && *redirect)
-		status = redirection(redirect, hash, son_struct);
-	ft_free_matrix(redirect);
+		status = redirection(redirect, son_struct);
+	(void)hash;
+	ft_free_matrix((void **)redirect);
 	return (status);
 }

@@ -34,7 +34,17 @@ FILES = main.c \
 		token_expander_utils.c \
 		waitchild.c \
 		isbuiltin.c \
-		heredoc.c
+		heredoc.c \
+		input.c \
+		trunc.c \
+		append.c \
+		heredoc_utils.c \
+		setup_cmds.c \
+		token_remove_quotes.c \
+		token_remove_quotes_utils.c \
+		token_setup_global.c \
+		fill_son.c \
+		execute_builtins.c
 
 OBJS = $(addprefix $(BUILDS)/, $(FILES:.c=.o))
 
