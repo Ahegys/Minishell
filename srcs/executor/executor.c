@@ -3,7 +3,7 @@
 static char **bins_paths()
 {
 	char **bins_path;
-
+	
 	bins_path = ft_split(search(g_shell.hash, "PATH"), ':');
 	return (bins_path);
 }
@@ -65,7 +65,7 @@ static void runtime(char **bins, char **args)
 			pid = fork();
 			if (pid == 0)
 			{
-				if (execve(bins[i], args, g_shell.envp) == -1)
+				if (execve(bins[i], args, args) == -1)
 					perror("execvp");
 				exit(0);
 			}
@@ -76,6 +76,7 @@ static void runtime(char **bins, char **args)
 		}
 		i++;
 	}
+	
 	ft_free_matrix((void **)bins);
 }
 
