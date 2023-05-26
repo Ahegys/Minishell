@@ -7,7 +7,7 @@ static void	re_print_prompt(int sig)
 		(void)sig;
 		ft_putchar('\n');
 		rl_on_new_line();
-		rl_replace_line("", 0);
+		//rl_replace_line("", 0);
 		rl_redisplay();
 	// }
 }

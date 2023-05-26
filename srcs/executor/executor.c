@@ -65,7 +65,7 @@ static void runtime(char **bins, char **args)
 			pid = fork();
 			if (pid == 0)
 			{
-				if (execve(bins[i], args, args) == -1)
+				if (execve(bins[i], args, g_shell.env_m) == -1)
 					perror("execvp");
 				exit(0);
 			}

@@ -47,7 +47,7 @@ int		redirection(char **str, t_command *son);
 int		unclosed_quotes_case(char **pipeline, char quote);
 
 //void return
-void	hash_conver();
+void	hash_convert();
 void	env(t_hash *hash);
 void	set_up_signals(void);
 void	executor(char *line);

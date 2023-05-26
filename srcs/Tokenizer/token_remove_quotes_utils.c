@@ -11,7 +11,7 @@ static void value_size(char *str, size_t *index, size_t *counter)
 						const char *value = search(g_shell.hash, "?");
 						(*counter) += strlen(value);
 						(*index)++;
-						while ((isalpha(str[*index]) || str[*index] == '_') && str[*index] != '\0')
+						while ((ft_isalpha(str[*index]) || str[*index] == '_') && str[*index] != '\0')
 								(*index)++;
 				}
 				else

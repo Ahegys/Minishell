@@ -16,6 +16,7 @@ size_t	ft_matrixlen(const char **matrix)
 {
 	size_t	size;
 
+	size = 0;
 	while (*matrix)
 	{
 		size++;

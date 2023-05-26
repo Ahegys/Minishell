@@ -27,7 +27,6 @@ void	tokenizer(char *input, t_hash *hash)
 	free(input);
 	for (int i = 0; commands && *commands && commands[i]; i++){
 		executor(commands[i]);
-		hash_conver();
 	}
 	ft_free_matrix((void **)commands);
 	(void)hash;

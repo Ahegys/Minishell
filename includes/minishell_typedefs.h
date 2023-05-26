@@ -21,6 +21,12 @@ typedef struct s_command {
 	char	**argv;
 }	t_command;
 
+typedef struct s_env
+{
+	char			**env;
+	unsigned int	size;
+}	t_env;
+
 typedef struct s_pipe {
 	char		**LEXER_REST;
 	char		**REDIRECT_REST;

@@ -45,6 +45,7 @@ static void	command(char *input, t_hash *hash)
 		free(input);
 		return ;
 	}
+	hash_convert();
 	tokenizer(input, hash);
 	//token_and_execution(input, hash);
 }

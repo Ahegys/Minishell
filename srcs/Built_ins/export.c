@@ -1,11 +1,14 @@
 #include "../../includes/minishell.h"
 
+/*
+
+*/
 static int syntax_error(char *str)
 {
-	if (!(*str == '_' || isalpha(*str)))
+	if (!(*str == '_' || ft_isalpha(*str)))
 		return (-1);
 	while (*++str)
-	if (!isalnum(*str) && *str != '_')
+	if (!ft_isalnum(*str) && *str != '_')
 		return (-1);
 	return (1);
 }
