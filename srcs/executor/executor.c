@@ -141,7 +141,7 @@ static void runtime(char **bins, char **args)
 void executor(char *line)
 {
 	char **args;
-
+	// estou mudando isso
 	args = ft_split(line, -7);
 	if (isbuiltin(args[0]))
 		buitins(args);
