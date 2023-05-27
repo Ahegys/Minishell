@@ -13,7 +13,18 @@
 # include "./minishell_typedefs.h"
 # include "../libs/libft/includes/libft.h"
 
-# define PROMPT "Minishell >$ "
+
+#ifdef __APPLE__
+		#define SYSTEM_TYPE " \033[0;35m\033[0m "
+#elif defined(_WIN32)
+		#define SYSTEM_TYPE " \033[0;32m\033[0m "
+#elif defined(__linux__)
+		#define SYSTEM_TYPE " \033[0;36m\033[0m "
+#else
+		#define SYSTEM_TYPE " \033[0;31m\033[0m "
+#endif
+
+# define PROMPT "\n\033[1;34m  Minishell\033[0m\n" SYSTEM_TYPE "\033[1;33m\033[0m "
 # define ERR_FORK "\e[5;31mms: forking error\e[0m"
 # define ERR_QUOTE "\e[5;31mms: close this quote \e[1m`%c`\n\e[0m"
 # define ERR_READING "\e[5;31mms: read error\e[0m"
