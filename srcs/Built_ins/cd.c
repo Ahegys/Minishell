@@ -17,11 +17,13 @@ int change_directory(const char *path)
 
 int cd(char *str, char **matrix)
 {
+	char *home_dir;
+	
 	if (ft_matrixlen((const char **)matrix) <= 2)
 	{
 		if (str == NULL)
 		{
-			char *home_dir = search(g_shell.hash, "HOME");
+			home_dir = search(g_shell.hash, "HOME");
 			if (home_dir == NULL)
 			{
 				perror("cd");
