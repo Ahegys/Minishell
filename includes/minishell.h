@@ -37,7 +37,6 @@
 extern t_pipe	g_shell;
 
 // int return
-int		cd(char *str);
 int		pipe_case(char **splited_pline);
 int		parser(char *str, t_hash *hash);
 int		write_to_case(char **splited_pline);
@@ -84,6 +83,7 @@ t_node	*create_node(char *key, char *value);
 char	**remove_quotes_and_expand(char **matrix);
 
 // new functions, analyze they before putting in the right place
+int		cd(char *str, char **matrix);
 int		isbuiltin(char *check);
 int		heredoc(char *limiter, t_command *son);
 int		reading_invalid(char *file, t_hash *hash);

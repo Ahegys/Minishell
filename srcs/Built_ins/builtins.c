@@ -7,7 +7,7 @@ void	builtins(char *input, t_hash *hash)
 	if (ft_strncmp(input, "echo ", ft_strlen("echo ")) == 0)
 		echo(input, hash);
 	else if (ft_strncmp(input, "cd ", ft_strlen("cd ")) == 0)
-		cd(input);
+		printf("cd");
 	else if (ft_strcmp(input, "pwd") == 0)
 		pwd(input, hash);
 	else if (ft_strncmp(input, "export ", ft_strlen("export ")) == 0)
