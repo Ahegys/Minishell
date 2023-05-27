@@ -8,11 +8,11 @@ int change_directory(const char *path)
 	if (chdir(path) == -1)
 	{
 		perror("cd");
-		return -1;
+		return (-1);
 	}
 	getcwd(current_dir, sizeof(current_dir));
 
-	return 0;
+	return (0);
 }
 
 int cd(char *str, char **matrix)
@@ -27,15 +27,15 @@ int cd(char *str, char **matrix)
 			if (home_dir == NULL)
 			{
 				perror("cd");
-				return -1;
+				return (-1);
 			}
-			return change_directory(home_dir);
+			return (change_directory(home_dir));
 		}
 		else
-			return change_directory(str);
+			return (change_directory(str));
 	}
 	else
 		return (ft_printf("to many args\n"));
 
-	return 0;
+	return (0);
 }
