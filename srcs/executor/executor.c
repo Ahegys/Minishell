@@ -140,7 +140,7 @@ static void runtime(char **bins, char **args)
 void executor(char *line)
 {
 	char **args;
-	// estou mudando isso
+	// estou mudando isso, por enquando essa e a build que n ta com os args na global
 	args = ft_split(line, -7);
 	if (isbuiltin(args[0]))
 		buitins(args);

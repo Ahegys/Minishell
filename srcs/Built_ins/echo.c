@@ -5,27 +5,18 @@ void	echo(char **command)
 	int	i;
 
 	if (command[1] == NULL)
-	{
-		ft_printf("\n");
-		return;
-	}
+		
+		return ((void)ft_printf("\n"));
 	else if (ft_strcmp(command[1], "-n") == 0)
 	{
 		i = 2;
 		while (command && command[i])
-		{
-			ft_printf("%s ", command[i]);
-			i++;
-		}
+			ft_printf("%s ", command[i++]);
 		return;
 	}
 	i = 1;
 	while (command && command[i])
-	{
-		ft_printf("%s ", command[i]);
-		i++;
-	}
-	
-	ft_putchar('\n');
+		ft_printf("%s ", command[i++]);
 
+	ft_putchar('\n');
 }
