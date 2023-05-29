@@ -7,7 +7,6 @@ FILES = main.c \
 		builtins.c \
 		cd.c \
 		echo.c \
-		echo_utils.c \
 		env.c \
 		exit.c \
 		export.c \

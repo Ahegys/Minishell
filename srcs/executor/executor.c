@@ -96,7 +96,6 @@ void executor(char *line)
 	}
 }
 */
-
 static void runtime(char **bins, char **args)
 {
 	pid_t	pid;

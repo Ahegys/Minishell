@@ -1,10 +1,31 @@
 #include "../../includes/minishell.h"
 
-void	echo(char *str, t_hash *hash)
+void	echo(char **command)
 {
-	while (*str && (*str != ' ' && *str != '\t'))
-		str++;
-	while (*str && (*str == ' ' || *str == '\t'))
-		str++;
-	(void)hash;
+	int	i;
+
+	if (command[1] == NULL)
+	{
+		ft_printf("\n");
+		return;
+	}
+	else if (ft_strcmp(command[1], "-n") == 0)
+	{
+		i = 2;
+		while (command && command[i])
+		{
+			ft_printf("%s ", command[i]);
+			i++;
+		}
+		return;
+	}
+	i = 1;
+	while (command && command[i])
+	{
+		ft_printf("%s ", command[i]);
+		i++;
+	}
+	
+	ft_putchar('\n');
+
 }
