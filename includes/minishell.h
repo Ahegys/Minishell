@@ -48,11 +48,14 @@ int		cd(char *str);
 int		pipe_case(char **splited_pline);
 int		parser(char *str, t_hash *hash);
 int		write_to_case(char **splited_pline);
-int		redirection(char *str, t_hash *hash, t_command *son);
 int		intersections(char *str, char inter);
 int		read_from_case(char **splited_pline);
+int		heredoc(char *limiter, t_command *son, size_t id);
 int		unclosed_quotes_case(char **pipeline, char quote);
-
+int		redirection(char **str, t_command *son, size_t id);
+int		redirect_input(char *filename, t_command *son, size_t id);
+int		redirect_output_trunc(char *filename, t_command *son, size_t id);
+int		redirect_output_append(char *filename, t_command *son, size_t id);
 //void return
 void	env(t_hash *hash);
 void	set_up_signals(void);
@@ -69,17 +72,18 @@ void	builtins(char *input, t_hash *hash);
 void	tokenizer(char *input, t_hash *hash);
 void	execute_line(char *line, t_hash *hash);
 void	count_cmds(char *input, size_t *n_cmds);
-void	heredoc(t_hash *hash, t_redirect *this);
+void	close_opened(t_command *son, size_t id);
 void	insert_node(t_hash *hash, char *key, char *value);
 void	inside_quote_copy(char **str, char **new, char quote);
 void	copy_with_expansions(char *str, char *new, t_hash *hash);
 void	inside_quote_counter(char **str, size_t *counter, char quote);
-
+void	copy_with_expansions_heredoc(char *str, char *expander_str, t_hash *hash);
 // char retunr
 char	*separator(char *str);
 char	*extract_cmd(char **input);
 char	*search(t_hash *hash, char *key);
 char	*expand_vars(char *str, t_hash *hash);
+char	*remove_quotes_and_expand(char *filename);
 // t_node return
 t_node	*create_node(char *key, char *value);
 
@@ -92,4 +96,6 @@ int		redirect_invalid(char **split_pline, t_hash *hash);
 // pid_t return
 pid_t	execute_command(char **args, t_hash *hash);
 
+
+size_t	size_with_values_heredoc(char *str, t_hash *hash);
 #endif // minishell.h

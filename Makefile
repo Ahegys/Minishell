@@ -13,6 +13,11 @@ FILES = main.c \
 		export.c \
 		pwd.c \
 		unset.c \
+		append.c \
+		trunc.c \
+		input.c \
+		heredoc_utils.c \
+		heredoc_utils2.c \
 		add_to_history.c \
 		free_all_and_exit.c \
 		executor.c \
@@ -22,16 +27,10 @@ FILES = main.c \
 		lexer_spacer.c \
 		lexer_spacer_utils.c \
 		parser.c \
-		parser_reading_invalid.c \
-		parser_redirects.c \
 		parser_utils.c \
-		parser_writing_invalid.c \
 		redirect.c \
-		redirect_utils.c \
 		token_constructor.c \
 		token_constructor_utils.c \
-		token_expander.c \
-		token_expander_utils.c \
 		waitchild.c \
 		isbuiltin.c \
 		heredoc.c
